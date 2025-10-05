@@ -1,0 +1,45 @@
+<div class="news-detail-page" *ngIf="conferenceData">
+  <div class="container">
+    <div class="back-button">
+      <button class="back-btn" (click)="goBack()">
+        <i class="pi pi-arrow-right"></i>
+        Back to News
+      </button>
+    </div>
+    <div class="news-detail-split">
+      <!-- Left: Gallery & Title -->
+      <div class="news-gallery-section">
+        <div class="main-image-wrapper">
+          <img class="main-image" [src]="mainImage" [alt]="conferenceData.title" />
+        </div>
+        <div class="gallery-thumbnails" *ngIf="conferenceData.images && conferenceData.images.length > 1">
+          <img *ngFor="let img of conferenceData.images" [src]="img" [alt]="conferenceData.title" [class.active-thumb]="img === mainImage" (click)="setMainImage(img)" />
+        </div>
+        <h1 class="gallery-title">{{ conferenceData.title }}</h1>
+      </div>
+      <!-- Right: Details -->
+      <div class="news-info-section">
+        <div class="news-meta-row">
+          <span class="news-category">{{ conferenceData.category }}</span>
+          <span class="news-date">
+            <i class="pi pi-calendar"></i>
+            {{ formatDate(conferenceData.date) }}
+          </span>
+        </div>
+        <div class="news-author-row">
+          <span class="author-label">By:</span>
+          <span class="author-name">{{ conferenceData.author }}</span>
+        </div>
+        <div class="news-summary">{{ conferenceData.summary }}</div>
+        <div class="news-content">
+          <p *ngFor="let paragraph of conferenceData.content">{{ paragraph }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

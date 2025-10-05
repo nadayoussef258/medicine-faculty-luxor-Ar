@@ -1,0 +1,63 @@
+<div class="advanced-search-section">
+  <div class="container">
+    <div class="search-form">
+      <div class="search-row">
+        <div class="search-field">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="searchData.name"
+            placeholder="Type the member's name..."
+            class="search-input"
+          />
+        </div>
+      </div>
+
+      <div class="search-row">
+      
+
+        <div class="search-field">
+          <label for="department">Department</label>
+          <select
+            id="department"
+            [(ngModel)]="searchData.department"
+            class="search-select"
+          >
+            <option value="">All Departments</option>
+            <option *ngFor="let department of departments" [value]="department">
+              {{ department }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="search-row">
+        <div class="search-field">
+          <label for="academicRank">Academic Rank</label>
+          <select
+            id="academicRank"
+            [(ngModel)]="searchData.academicRank"
+            class="search-select"
+          >
+            <option value="">All Ranks</option>
+            <option *ngFor="let rank of academicRanks" [value]="rank">
+              {{ rank }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="search-actions">
+        <button class="search-btn" (click)="performSearch()">
+          <i class="pi pi-search"></i>
+          Search
+        </button>
+        <button class="clear-btn" (click)="clearSearch()">
+          <i class="pi pi-refresh"></i>
+          Clear Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

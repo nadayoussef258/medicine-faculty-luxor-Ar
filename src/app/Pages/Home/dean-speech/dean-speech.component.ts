@@ -45,7 +45,7 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
         <div class="quote-icon">
           <i class="fas fa-quote-right"></i>
         </div>
-        <div class="message-text" [innerHTML]="deanInfo.message"></div>
+        <div class="message-text" [innerHTML]="displayedMessage"></div>
       </div>
     </div>
   </div>
@@ -300,7 +300,8 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
 })
 export class MedicalDeanSpeechComponent {
     @Input() sectionTitle: string = `Dean's Message`;
-
+@Input() fullText: string = '';
+  @Input() showFull: boolean = true;
   deanInfo = {
     name: 'Prof. Mohamed Shahat Badawy',
     title: 'Dean of the Faculty of Medicine- Luxor University ',
@@ -322,4 +323,12 @@ We continue our journey, asking God for success in our mission, and that the col
   };
 
   constructor() { }
+  get displayedMessage(): string {
+  if (this.showFull) {
+    return this.deanInfo.message;   // النص كامل
+  } else {
+    // نجيب أول 300 حرف ونضيف "..."
+    return this.deanInfo.message.slice(0, 720) + '...';
+  }
+}
 }

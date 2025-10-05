@@ -20,4 +20,14 @@
       </div>
     </div>
   </div>
+
+    <!-- All Services Button -->
+  <div class="all-services-section" *ngIf="showAllServicesButton">
+    <a
+      class="all-services-btn"
+     [routerLink]="allServicesUrl"
+    >
+      {{ allServicesText }}
+    </a>
+  </div>
 </div>

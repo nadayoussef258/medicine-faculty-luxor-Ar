@@ -41,7 +41,7 @@ export class MedicineHeroSectionComponent implements OnInit, OnDestroy {
   ];
 
   @Input() buttonText: string = 'About Us';
-  @Input() buttonRoute: string = '/';
+  @Input() buttonRoute: string = '/structure';
   @Input() autoPlayInterval: number = 5000;
   @Input() showControls: boolean = true;
   @Input() showIndicators: boolean = true;

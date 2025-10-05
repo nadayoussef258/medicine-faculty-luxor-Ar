@@ -1,0 +1,51 @@
+<div class="related-news-container">
+  <h2 class="related-news-title">
+    <i class="pi pi-bookmark"></i>
+    أخبار ذات صلة
+  </h2>
+
+  <div class="related-news-carousel" *ngIf="relatedNews && relatedNews.length > 0">
+    <p-carousel 
+      [value]="relatedNews" 
+      [numVisible]="3" 
+      [numScroll]="1" 
+      [circular]="true" 
+      [autoplayInterval]="5000"
+      [responsiveOptions]="responsiveOptions"
+      [showIndicators]="true" 
+      [showNavigators]="true">
+      
+      <ng-template pTemplate="item" let-news>
+        <div class="news-card-wrapper">
+          <div class="news-card" (click)="navigateToNews(news.id)">
+            <div class="news-card-image">
+              <img [src]="news.thumbnailImage" [alt]="news.title" />
+              <div class="news-card-overlay"></div>
+            </div>
+            
+            <div class="news-card-content">
+              <h3 class="news-card-title">{{ truncateText(news.title, 60) }}</h3>
+              <p class="news-card-summary">{{ truncateText(news.summary, 80) }}</p>
+              
+              <div class="news-card-footer">
+                <span class="news-card-date">
+                  <i class="pi pi-calendar"></i>
+                  {{ news.publishDate | date:'dd/MM/yyyy' }}
+                </span>
+                <span class="news-card-read-more" (click)="navigateToNews(news.id, $event)">
+                  اقرأ المزيد
+                  <i class="pi pi-arrow-left"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+
+  <div class="no-related-news" *ngIf="!relatedNews || relatedNews.length === 0">
+    <i class="pi pi-info-circle"></i>
+    <p>لا توجد أخبار ذات صلة حالياً</p>
+  </div>
+</div>

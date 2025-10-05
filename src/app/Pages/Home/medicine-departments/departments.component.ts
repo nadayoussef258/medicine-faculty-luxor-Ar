@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 export interface DepartmentItem {
   id?: string;
@@ -12,53 +13,62 @@ export interface DepartmentItem {
 @Component({
   selector: 'ck-departments',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './departments.component.html',
   styleUrls: ['./departments.component.css'],
   encapsulation: ViewEncapsulation.None // This ensures CSS variables and styles are applied globally
 })
 export class DepartmentsComponent {
+
+   @Input() showAllServicesButton: boolean = true; 
+  @Input() allServicesUrl: string = '/departments';
+  @Input() allServicesText: string = 'All Departments +';
   @Input() departments: DepartmentItem[] = [
     {
       id: '1',
       title: 'CARDIOLOGY',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas adipisicing.',
-      iconPath: 'images/icons_box/icon_1/icon-5.png',
+      iconPath: 'assets/cardiology.png',
       iconAlt: 'Cardiology Icon'
     },
     {
       id: '2',
       title: 'NEUROLOGY',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas adipisicing.',
-      iconPath: 'images/icons_box/icon_1/icon-4.png',
+            iconPath: 'assets/Neurology.png',
+
       iconAlt: 'Neurology Icon'
     },
     {
       id: '3',
       title: 'ORTHOPEDICS',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas adipisicing.',
-      iconPath: 'images/icons_box/icon_1/icon-3.png',
+            iconPath: 'assets/Orthopedics.png',
+
       iconAlt: 'Orthopedics Icon'
     },
     {
       id: '4',
       title: 'CANCER DEPARTMENT',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas adipisicing.',
-      iconPath: 'images/icons_box/icon_1/icon-2.png',
+            iconPath: 'assets/cancer department.png',
+
       iconAlt: 'Cancer Department Icon'
     },
     {
       id: '5',
       title: 'OPHTHALMOLOGY',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas adipisicing.',
-      iconPath: 'images/icons_box/icon_1/icon-1.png',
+            iconPath: 'assets/Ophthalmology.png',
+
       iconAlt: 'Ophthalmology Icon'
     },
     {
       id: '6',
       title: 'RESPIRATORY',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas adipisicing.',
-      iconPath: 'images/icons_box/icon_1/icon.png',
+            iconPath: 'assets/Respiratory.png',
+
       iconAlt: 'Respiratory Icon'
     }
   ];

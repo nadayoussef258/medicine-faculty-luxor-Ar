@@ -1,0 +1,68 @@
+<!-- news-content.component.html -->
+<div class="news-content" *ngIf="article">
+  <!-- عنوان الخبر -->
+  <h1 class="news-title">{{ article.title }}</h1>
+  
+  <!-- التاريخ والناشر -->
+  <div class="news-meta">
+    <span class="news-date">
+      <i class="pi pi-calendar"></i>
+      {{ article.publishDate | date: 'dd.MM.yyyy' }}
+    </span>
+    <span class="news-time">
+      <i class="pi pi-clock"></i>
+      {{ article.publishTime }}
+    </span>
+    <span class="news-updated" *ngIf="article.lastUpdate">
+      <i class="pi pi-refresh"></i>
+      آخر تحديث: {{ article.lastUpdate | date: 'dd.MM.yyyy - HH:mm' }}
+    </span>
+  </div>
+
+  <!-- التاجز -->
+  <div class="news-tags">
+    <p-chip 
+      *ngFor="let tag of article.tags" 
+      [label]="tag"
+      styleClass="news-tag">
+    </p-chip>
+  </div>
+
+  <!-- الصورة الأساسية -->
+  <div class="main-image-container" *ngIf="article.images && article.images.length > 0">
+    <img 
+      [src]="article.images[selectedImageIndex].url" 
+      [alt]="article.images[selectedImageIndex].caption || article.title"
+      class="main-image">
+    
+    <div class="image-caption" *ngIf="article.images[selectedImageIndex].caption">
+      {{ article.images[selectedImageIndex].caption }}
+    </div>
+  </div>
+
+  <!-- الصور الصغيرة (thumbnails) -->
+  <div class="thumbnails-container" *ngIf="article.images && article.images.length > 1">
+    <div 
+      class="thumbnail" 
+      *ngFor="let image of article.images; let i = index"
+      [class.active]="i === selectedImageIndex"
+      (click)="selectImage(i)">
+      <img [src]="image.url" [alt]="image.caption || article.title">
+    </div>
+  </div>
+
+  <!-- وصف الخبر -->
+  <div class="news-description">
+    <p class="news-summary">{{ article.summary }}</p>
+    
+    <div class="news-content-body" [innerHTML]="article.content"></div>
+  </div>
+
+  <!-- فيديو إن وُجد -->
+  <div class="news-video" *ngIf="article.videoUrl">
+    <video controls class="video-player">
+      <source [src]="article.videoUrl" type="video/mp4">
+      متصفحك لا يدعم تشغيل الفيديو
+    </video>
+  </div>
+</div>

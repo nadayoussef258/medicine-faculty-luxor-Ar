@@ -1,0 +1,70 @@
+<div class="staff-grid-section">
+  <div class="container">
+   
+
+    <div class="staff-grid">
+      <div class="staff-card" *ngFor="let dept of pagedStaff" (click)="openModal(dept)">
+        <div class="staff-image">
+          <img [src]="dept.image" [alt]="dept.name" />
+        </div>
+        <div class="staff-content">
+          <h3 class="staff-name">{{ dept.name }}</h3>
+             <h5 class="info-head">Department Head</h5>
+          <p class="staff-rank">
+         
+            {{ dept.head }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="staff-pagination" *ngIf="totalPages > 1">
+      <button class="staff-pagination-btn nav-btn" [disabled]="page === 1" (click)="setPage(page-1)">Previous</button>
+      <button class="staff-pagination-btn" *ngFor="let p of [].constructor(totalPages); let i = index" [class.active]="page === (i+1)" (click)="setPage(i+1)">{{ i+1 }}</button>
+      <button class="staff-pagination-btn nav-btn" [disabled]="page === totalPages" (click)="setPage(page+1)">Next</button>
+    </div>
+
+    <div class="modal" *ngIf="showModal" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <div class="modal-header">
+          <div class="modal-image">
+            <img [src]="selectedStaff.image" [alt]="selectedStaff.name" />
+          </div>
+          <h2 class="modal-title">{{ selectedStaff.name }}</h2>
+        </div>
+        
+        <div class="modal-body">
+          <div class="info-row">
+            <span class="info-label">Department Head:</span>
+            <span class="info-value">{{ selectedStaff.head }}</span>
+          </div>
+          
+          <div class="info-row">
+            <span class="info-label">Description:</span>
+            <p class="info-description">{{ selectedStaff.description }}</p>
+          </div>
+          
+          <div class="info-row">
+            <span class="info-label">Research Areas:</span>
+            <span class="info-value">{{ selectedStaff.researchAreas }}</span>
+          </div>
+          
+          <div class="info-row">
+            <span class="info-label">Location:</span>
+            <span class="info-value">{{ selectedStaff.location }}</span>
+          </div>
+          
+          <div class="info-row">
+            <span class="info-label">Email:</span>
+            <a [href]="'mailto:' + selectedStaff.contactEmail" class="info-link">{{ selectedStaff.contactEmail }}</a>
+          </div>
+          
+          <div class="info-row">
+            <span class="info-label">Phone:</span>
+            <a [href]="'tel:' + selectedStaff.phone" class="info-link">{{ selectedStaff.phone }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

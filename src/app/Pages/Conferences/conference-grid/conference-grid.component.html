@@ -5,22 +5,22 @@
     </div> -->
     
     <div class="news-grid">
-      <article class="news-card" *ngFor="let news of pagedNews">
+      <article class="news-card" *ngFor="let conference of pagedConferences">
         <div class="card-image">
-          <img [src]="news.thumbnailImage" [alt]="news.title" loading="lazy">
+          <img [src]="conference.image" [alt]="conference.title" loading="lazy">
           <div class="date-badge">
-            <span class="day">{{ news.publishDate | date:'dd' }}</span>
-            <span class="month">{{ news.publishDate | date:'MMM' }}</span>
+            <span class="day">{{ conference.date | date:'dd' }}</span>
+            <span class="month">{{ conference.date | date:'MMM' }}</span>
           </div>
         </div>
         <div class="card-content">
           <div class="author-info">
-            <span class="author">{{ news.author || '---' }}</span>
-            <span *ngIf="news.category">/ <span class="specialty">{{ news.category }}</span></span>
+            <span class="author">{{ conference.organizer }}</span>
+            <span *ngIf="conference.category">/ <span class="specialty">{{ conference.category }}</span></span>
           </div>
-          <h3 class="card-title">{{ news.title }}</h3>
-          <p class="card-excerpt">{{ news.summary }}</p>
-          <a class="read-more" (click)="$event.stopPropagation(); goToNewsDetail(news.id)" tabindex="0">
+          <h3 class="card-title">{{ conference.title }}</h3>
+          <p class="card-excerpt">{{ conference.summary }}</p>
+          <a class="read-more" (click)="$event.stopPropagation(); goToConferenceDetail(conference.id)" tabindex="0">
             Details<i class="fas fa-arrow-left"></i>
           </a>
         </div>

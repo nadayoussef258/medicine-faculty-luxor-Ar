@@ -2,15 +2,8 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './Pages/Home/Home/Home.component';
 import { AboutCollegeComponent } from './Pages/About-College/about-college.component';
-import { OverviewComponent } from './Pages/About-College/overview/overview.component';
-import { ManagementComponent } from './Pages/About-College/management/management.component';
-import { EducationStudentsComponent } from './Pages/sectors/education-students.component';
-import { ResearchComponent } from './Pages/sectors/research.component';
-import { CommunityComponent } from './Pages/sectors/community.component';
-import { ScientificDepartmentsComponent } from './Pages/Scientific-Departments/scientific-departments.component';
 import { AcademicDepartmentsComponent } from './Pages/Scientific-Departments/academic-departments.component';
 import { ClinicalDepartmentsComponent } from './Pages/Scientific-Departments/clinical-departments.component';
-import { CentersUnitsComponent } from './Pages/Centers-Units/centers-units.component';
 import { CollegeJournalComponent } from './Pages/College-Journal/college-journal.component';
 import { NewsComponent } from './Pages/News/news.component';
 import { NewsDetailComponent } from './Pages/News/news-detail/news-detail.component';
@@ -27,6 +20,9 @@ import { VisionMissionComponent } from './Pages/About-College/vision-mission.com
 import { HistoryComponent } from './Pages/About-College/overview/history.component';
 import { GoalsComponent } from './Pages/goals/goals.component';
 import { OrganizationalStructureComponent } from './Pages/About-College/management/OrganizationalStructure/OrganizationalStructure.component';
+import { conferenceComponent } from './Pages/Conferences/conference.component';
+import { ConferenceDetailComponent } from './Pages/Conferences/conference-detail/conference-detail.component';
+import { DepartmentsComponent } from './Pages/Departments/departments.component';
 
 export const routes: Routes = [
     {
@@ -62,19 +58,22 @@ export const routes: Routes = [
          { path: 'sector-news/:id', component: SectorNewsDetailComponent },
          { path: 'sector-services', component: SectorServicesComponent },
          { path: '', redirectTo: 'about-sector', pathMatch: 'full' },
-
       ]
         },
+
         {
           path: 'departments',
-          component: ScientificDepartmentsComponent,
+          component: DepartmentsComponent,
           children: [
             { path: 'academic', component: AcademicDepartmentsComponent },
             { path: 'clinical', component: ClinicalDepartmentsComponent }
           ]
         },
-        { path: 'centers-units', component: CentersUnitsComponent },
+        // { path: 'centers-units', component: CentersUnitsComponent },
         { path: 'journal', component: CollegeJournalComponent },
+        {path:'conferences', component:conferenceComponent},
+        {path:'conference/detail/:id', component:ConferenceDetailComponent},
+
         { path: 'staff-members', component: StaffMembersComponent },
         { path: 'services', component: ServicesComponent },
         {
@@ -84,6 +83,7 @@ export const routes: Routes = [
             { path: 'detail/:id', component: NewsDetailComponent }
           ]
         }
+        
       ]
     }
 ];

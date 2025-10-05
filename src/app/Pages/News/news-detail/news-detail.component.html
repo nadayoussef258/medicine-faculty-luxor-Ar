@@ -1,45 +1,16 @@
-<div class="news-detail-page" *ngIf="newsData">
-  <div class="container">
-    <div class="back-button">
-      <button class="back-btn" (click)="goBack()">
-        <i class="pi pi-arrow-right"></i>
-        Back to News
-      </button>
+<!-- news-detail.component.html -->
+<div class="news-detail-container" *ngIf="!loading">
+  <div class="p-grid">
+    <div class="p-col-12 p-lg-8">
+      <app-news-content [article]="newsArticle"></app-news-content>
     </div>
-    <div class="news-detail-split">
-      <!-- Left: Gallery & Title -->
-      <div class="news-gallery-section">
-        <div class="main-image-wrapper">
-          <img class="main-image" [src]="mainImage" [alt]="newsData.title" />
-        </div>
-        <div class="gallery-thumbnails" *ngIf="newsData.images && newsData.images.length > 1">
-          <img *ngFor="let img of newsData.images" [src]="img" [alt]="newsData.title" [class.active-thumb]="img === mainImage" (click)="setMainImage(img)" />
-        </div>
-        <h1 class="gallery-title">{{ newsData.title }}</h1>
-      </div>
-      <!-- Right: Details -->
-      <div class="news-info-section">
-        <div class="news-meta-row">
-          <span class="news-category">{{ newsData.category }}</span>
-          <span class="news-date">
-            <i class="pi pi-calendar"></i>
-            {{ formatDate(newsData.date) }}
-          </span>
-        </div>
-        <div class="news-author-row">
-          <span class="author-label">By:</span>
-          <span class="author-name">{{ newsData.author }}</span>
-        </div>
-        <div class="news-summary">{{ newsData.summary }}</div>
-        <div class="news-content">
-          <p *ngFor="let paragraph of newsData.content">{{ paragraph }}</p>
-        </div>
-      </div>
+    
+    <div class="p-col-12 p-lg-4">
+      <app-related-news [relatedNews]="relatedNews"></app-related-news>
     </div>
   </div>
 </div>
 
-
-
-
-
+<div class="loading-container" *ngIf="loading">
+  <p-progressSpinner></p-progressSpinner>
+</div>
