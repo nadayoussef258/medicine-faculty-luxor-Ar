@@ -1,0 +1,69 @@
+<div class="parent-sector-wrapper">
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li [class.active]="activeTab === 'about'" (click)="setActiveTab('about')">About the Department</li>
+        <li [class.active]="activeTab === 'director'" (click)="setActiveTab('director')">Department Director</li>
+        <li [class.active]="activeTab === 'services'" (click)="setActiveTab('services')">Department Services</li>
+        <li [class.active]="activeTab === 'units'" (click)="setActiveTab('units')">Department Units</li>
+        <li [class.active]="activeTab === 'staff'" (click)="setActiveTab('staff')">Department Staff</li>
+        <li [class.active]="activeTab === 'course'" (click)="setActiveTab('course')">Department Course Description</li>
+        <li [class.active]="activeTab === 'vision'" (click)="setActiveTab('vision')">Vision</li>
+        <li [class.active]="activeTab === 'mission'" (click)="setActiveTab('mission')">Mission</li>
+        <li [class.active]="activeTab === 'goals'" (click)="setActiveTab('goals')">Goals</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <section class="content-area" *ngIf="department">
+   
+    <app-sector-header
+      *ngIf="activeTab === 'about' && department.AboutDepartment && mainImage"
+      [title]="department.AboutDepartment.Title"
+      [about]="department.AboutDepartment.About"
+      [imageUrl]="mainImage.UrlPath">
+    </app-sector-header>
+
+    <app-director-message
+      *ngIf="activeTab === 'director'"
+      [director]="directorForView">
+    </app-director-message>
+
+    <app-sector-services
+      *ngIf="activeTab === 'services'"
+      [sectorId]="department.Id">
+    </app-sector-services>
+
+    <app-sector-departments
+      *ngIf="activeTab === 'units'"
+      [sectorId]="+department.Id">
+    </app-sector-departments>
+
+    <app-staff-members
+      *ngIf="activeTab === 'staff'">
+    </app-staff-members>
+
+    <div *ngIf="activeTab === 'course'">
+      <h3>Department Course Description</h3>
+      <p>{{ department.AboutDepartment?.About }}</p>
+    </div>
+
+    <app-vision-mission-goals
+      *ngIf="activeTab === 'vision'"
+      [vision]="department.Vision"
+      [showVision]="true">
+    </app-vision-mission-goals>
+
+    <app-vision-mission-goals
+      *ngIf="activeTab === 'mission'"
+      [mission]="department.Mission"
+      [showMission]="true">
+    </app-vision-mission-goals>
+
+    <app-vision-mission-goals
+      *ngIf="activeTab === 'goals'"
+      [goals]="department.Goals"
+      [showGoals]="true">
+    </app-vision-mission-goals>
+  </section>
+</div>

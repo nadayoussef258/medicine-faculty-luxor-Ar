@@ -1,0 +1,5 @@
+<div class="scientific-departments-page-bg">
+  <app-hero-section [sectors]="department || {}"></app-hero-section>
+  <app-tab-menu [tabs]="tabs" [currentRoute]="currentRoute" (tabSelected)="onTabSelected($event)"></app-tab-menu>
+  <router-outlet></router-outlet>
+</div>

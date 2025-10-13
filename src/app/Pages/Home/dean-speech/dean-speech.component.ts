@@ -303,18 +303,18 @@ export class MedicalDeanSpeechComponent {
 @Input() fullText: string = '';
   @Input() showFull: boolean = true;
   deanInfo = {
-    name: 'Prof. Mohamed Shahat Badawy',
-    title: 'Dean of the Faculty of Medicine- Luxor University ',
+    name: 'Prof. Dr.Mohamed Shahat Badawy',
+    title: 'Dean of the College',
     image: 'assets/dean.png',
     message: `
-      I am pleased to inform you about Luxor Medical College, a prestigious institution that is a cornerstone in the distinguished history of medicine in Egypt. We work - God willing - to be a center of science, a sanctuary for healing the sick, and a sanctuary for the values of mercy and human dignity.
+    I am pleased to inform you about Luxor Medical College, a prestigious institution that is a cornerstone in the distinguished history of medicine in Egypt. We work - God willing - to be a center of science, a sanctuary for healing the sick, and a sanctuary for the values of mercy and human dignity.
 The college bears the name of a city that was the capital of a civilization that was associated thousands of years ago with excellence in medicine, and the walls of its temples still reveal secrets in this field, adding to the scientific and humanitarian legacy left by the ancient Egyptian civilization. Then comes the Arab-Islamic civilization, leaving what is recorded in international references of medical achievements that were one of the foundations for the establishment of modern medicine.
 Today, we at Luxor Medical College are inspired by this great legacy as we march to enrich this noble profession with a generation of doctors capable of carrying the message of medicine in a spirit of excellence, innovation, and staying abreast of the latest developments. 
 The college not only graduates doctors who possess scientific and practical competence, but also instills the values of compassion, generosity, and integrity. 
 The college not only educates and trains students, but also extends its role to serve the surrounding community by starting to establish a university hospital that covers the medical needs of the governorate.
 And perhaps beyond. We also plan to reach the most remote villages and hamlets through caravans that include high-level staff.
-We continue our journey, asking God for success in our mission, and that the college becomes a scientific and medical beacon that has its place among the prestigious medical institutions.
 
+We continue our journey, asking God for success in our mission, and that the college becomes a scientific and medical beacon that has its place among the prestigious medical institutions.
     `,
     qualifications: [
       'PhD in Internal Medicine',

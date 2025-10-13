@@ -7,7 +7,7 @@
     <div class="news-grid">
       <article class="news-card" *ngFor="let conference of pagedConferences">
         <div class="card-image">
-          <img [src]="conference.image" [alt]="conference.title" loading="lazy">
+          <img [src]="conference.images[0]" [alt]="conference.title" loading="lazy">
           <div class="date-badge">
             <span class="day">{{ conference.date | date:'dd' }}</span>
             <span class="month">{{ conference.date | date:'MMM' }}</span>

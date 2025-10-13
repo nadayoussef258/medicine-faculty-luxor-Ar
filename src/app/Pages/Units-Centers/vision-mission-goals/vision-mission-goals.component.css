@@ -1,0 +1,437 @@
+/* ===============================================
+   🎯 VMG Section (Vision, Mission, Goals) - Medical Theme
+   =============================================== */
+
+.vmg-section {
+  width: 100%;
+  margin: 0 0 80px;
+  padding: 0 var(--spacing-xl);
+  position: relative;
+}
+
+/* VMG Grid Layout */
+.vmg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* VMG Card Base Styles */
+.vmg-card {
+  background: var(--medicine-white);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  border: 2px solid var(--medicine-medium-gray);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background pattern */
+.vmg-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(183, 28, 28, 0.02) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.vmg-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.vmg-card:hover::before {
+  opacity: 1.5;
+}
+
+/* Full Width Card for Goals */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Card Icon Container */
+.card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  position: relative;
+  z-index: 1;
+}
+
+.card-icon i {
+  font-size: 2.5rem;
+  color: var(--medicine-white);
+  transition: transform var(--transition-normal);
+}
+
+.vmg-card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.vmg-card:hover .card-icon i {
+  transform: scale(1.1);
+}
+
+/* Vision Card Specific Styles */
+.vision-card .card-icon {
+  background: linear-gradient(135deg, 
+    var(--medicine-primary-red), 
+    var(--medicine-primary-red-light));
+}
+
+.vision-card:hover {
+  border-color: var(--medicine-primary-red-light);
+}
+
+/* Mission Card Specific Styles */
+.mission-card .card-icon {
+  background: linear-gradient(135deg, 
+    var(--medicine-medical-blue), 
+    var(--medicine-medical-blue-light));
+}
+
+.mission-card:hover {
+  border-color: var(--medicine-medical-blue-light);
+}
+
+/* Goals Card Specific Styles */
+.goals-card .card-icon {
+  background: linear-gradient(135deg, 
+    var(--medicine-medical-green), 
+    var(--medicine-medical-green-light));
+}
+
+.goals-card:hover {
+  border-color: var(--medicine-medical-green-light);
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--medicine-primary-brown);
+  margin-bottom: 1.2rem;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.card-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--medicine-primary-red), 
+    var(--medicine-primary-orange));
+  border-radius: 2px;
+}
+
+/* Card Content */
+.card-content {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--medicine-dark-gray);
+  position: relative;
+  z-index: 1;
+  text-align: justify;
+}
+
+/* Goals List */
+.goals-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.goal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(135deg, 
+    var(--medicine-light-beige) 0%, 
+    var(--medicine-light-gray) 100%);
+  border-radius: var(--border-radius-md);
+  border-right: 4px solid var(--medicine-medical-green);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.goal-item:hover {
+  background: linear-gradient(135deg, 
+    var(--medicine-light-gray) 0%, 
+    var(--medicine-medium-gray) 100%);
+  border-right-color: var(--medicine-primary-red);
+  transform: translateX(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Goal Number Badge */
+.goal-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, 
+    var(--medicine-medical-green), 
+    var(--medicine-medical-green-light));
+  color: var(--medicine-white);
+  border-radius: var(--border-radius-full);
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.goal-item:hover .goal-number {
+  background: linear-gradient(135deg, 
+    var(--medicine-primary-red), 
+    var(--medicine-primary-red-light));
+  transform: scale(1.1);
+}
+
+/* Goal Text */
+.goal-text {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--medicine-text-dark);
+  font-weight: 500;
+}
+
+/* ===============================================
+   📱 Responsive Design
+   =============================================== */
+
+@media (max-width: 1200px) {
+  .vmg-section {
+    padding: 0 var(--spacing-lg);
+  }
+
+  .vmg-grid {
+    gap: 1.8rem;
+  }
+
+  .vmg-card {
+    padding: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .vmg-section {
+    margin-bottom: 60px;
+  }
+
+  .vmg-grid {
+    gap: 1.5rem;
+  }
+
+  .card-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card-icon i {
+    font-size: 2.2rem;
+  }
+
+  .card-title {
+    font-size: 1.6rem;
+  }
+
+  .card-content {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vmg-section {
+    margin-bottom: 50px;
+    padding: 0 var(--spacing-md);
+  }
+
+  .vmg-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .full-width {
+    grid-column: 1;
+  }
+
+  .vmg-card {
+    padding: 2rem;
+  }
+
+  .card-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .card-icon i {
+    font-size: 2rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-content {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .goal-item {
+    padding: 1rem 1.2rem;
+    gap: 1rem;
+  }
+
+  .goal-number {
+    min-width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .goal-text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 576px) {
+  .vmg-section {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .vmg-card {
+    padding: 1.5rem;
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .card-icon i {
+    font-size: 1.8rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-content {
+    font-size: 0.95rem;
+  }
+
+  .goal-item {
+    padding: 0.9rem 1rem;
+    border-right-width: 3px;
+  }
+
+  .goal-number {
+    min-width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .goal-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* ===============================================
+   ♿ Accessibility
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .vmg-card,
+  .card-icon,
+  .card-icon i,
+  .goal-item,
+  .goal-number {
+    transition: none;
+  }
+
+  .vmg-card:hover,
+  .vmg-card:hover .card-icon,
+  .goal-item:hover {
+    transform: none;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .vmg-card {
+    border-width: 3px;
+  }
+
+  .goal-item {
+    border-right-width: 5px;
+  }
+}
+
+/* ===============================================
+   🖨️ Print Styles
+   =============================================== */
+
+@media print {
+  .vmg-section {
+    margin-bottom: 30px;
+  }
+
+  .vmg-grid {
+    gap: 15px;
+  }
+
+  .vmg-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    padding: 20px;
+    break-inside: avoid;
+  }
+
+  .vmg-card::before {
+    display: none;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    box-shadow: none;
+  }
+
+  .card-icon i {
+    font-size: 1.5rem;
+  }
+
+  .goal-item {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

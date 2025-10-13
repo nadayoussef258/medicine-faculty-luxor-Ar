@@ -1,37 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Card } from "primeng/card";
-import { CarouselModule } from "primeng/carousel";
 import { RelatedNewsItem } from '../../../Models/news';
 
 @Component({
   selector: 'app-related-news',
   templateUrl: './related-news.component.html',
   styleUrls: ['./related-news.component.css'],
-  imports: [CommonModule, CarouselModule]
+  imports: [CommonModule]
 })
-export class RelatedNewsComponent  {
-
- @Input() relatedNews: RelatedNewsItem[] = [];
-
-  responsiveOptions: any[] = [
-    {
-      breakpoint: '1400px',
-      numVisible: 3,
-      numScroll: 1
-    },
-    {
-      breakpoint: '1024px',
-      numVisible: 2,
-      numScroll: 1
-    },
-    {
-      breakpoint: '768px',
-      numVisible: 1,
-      numScroll: 1
-    }
-  ];
+export class RelatedNewsComponent {
+  @Input() relatedNews: RelatedNewsItem[] = [];
 
   constructor(private router: Router) {}
 
@@ -44,7 +23,7 @@ export class RelatedNewsComponent  {
     });
   }
 
-  truncateText(text: string, limit: number = 100): string {
+  truncateText(text: string, limit: number = 150): string {
     if (!text) return '';
     return text.length > limit ? text.substring(0, limit) + '...' : text;
   }

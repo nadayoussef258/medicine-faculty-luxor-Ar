@@ -1,0 +1,10 @@
+<div class="units-centers-page">
+  <app-departments-hero [heroData]="{ title: unitData?.name || 'Unit/Center', subtitle: unitData?.subTitle || '' }"></app-departments-hero>
+
+  <!-- Render current child (parent-about-sector) or other child pages here -->
+  <div class="container">
+    <div class="content mt-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

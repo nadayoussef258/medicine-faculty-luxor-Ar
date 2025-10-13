@@ -1,0 +1,63 @@
+<app-Mhero-section></app-Mhero-section>
+<div class="magazine-container">
+ 
+  <!-- Main Content -->
+  <main class="magazine-main">
+    <div class="articles-grid">
+      <!-- Article Card -->
+      <div *ngFor="let article of articles" class="article-card">
+        <!-- Image Slider -->
+        <div class="image-slider">
+          <img 
+            [src]="getCurrentImage(article)" 
+            [alt]="article.title"
+            class="article-image"
+          />
+
+          <!-- Navigation Buttons (if multiple images) -->
+          <ng-container *ngIf="article.images.length > 1">
+            <button 
+              class="slider-button slider-button-prev"
+              (click)="prevSlide(article.id)"
+              aria-label="Previous image"
+            >
+              <i class="pi pi-chevron-left"></i>
+            </button>
+
+            <button 
+              class="slider-button slider-button-next"
+              (click)="nextSlide(article.id)"
+              aria-label="Next image"
+            >
+              <i class="pi pi-chevron-right"></i>
+            </button>
+
+            <!-- Indicators -->
+            <div class="slider-indicators">
+              <button 
+                *ngFor="let img of article.images; let i = index"
+                class="indicator"
+                [class.active]="getCurrentImageIndex(article.id) === i"
+                (click)="goToSlide(article.id, i)"
+                [attr.aria-label]="'Go to image ' + (i + 1)"
+              ></button>
+            </div>
+
+            <!-- Image Counter -->
+            <div class="image-counter">
+              <span>{{ getCurrentImageIndex(article.id) + 1 }} / {{ article.images.length }}</span>
+            </div>
+          </ng-container>
+        </div>
+
+        <!-- Article Title -->
+        <h2 class="article-title">{{ article.title }}</h2>
+
+        <!-- Article Content -->
+        <p class="article-content">{{ article.content }}</p>
+      </div>
+    </div>
+  </main>
+
+
+</div>

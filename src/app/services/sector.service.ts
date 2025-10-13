@@ -365,7 +365,7 @@ getSectorNews(sectorId: string): Observable<News[]> {
         { Id: 1, Title: 'Number of Students', Count: 2500, SectorId: '1' },
         { Id: 2, Title: 'Faculty Members', Count: 180, SectorId: '1' },
         { Id: 3, Title: 'Academic Programs', Count: 12, SectorId: '1' },
-        { Id: 4, Title: 'Labs and Halls', Count: 45, SectorId: '1' }
+       
       ],
       Director: {
         Id: 1,

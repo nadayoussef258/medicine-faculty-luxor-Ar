@@ -5,6 +5,11 @@ export interface NewsImage {
   altText?: string;
 }
 
+export interface NewsImage {
+  url: string;
+  caption?: string;
+}
+
 export interface NewsArticle {
   id: string;
   title: string;
@@ -17,7 +22,8 @@ export interface NewsArticle {
   thumbnailImage: string;
   videoUrl?: string;
   author?: string;
-  category?:string;
+  category?: string;
+  type?: 'news' | 'event';
 }
 
 export interface RelatedNewsItem {
@@ -28,3 +34,4 @@ export interface RelatedNewsItem {
   publishDate: Date;
   tags: string[];
 }
+

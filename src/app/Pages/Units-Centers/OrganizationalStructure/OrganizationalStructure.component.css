@@ -1,0 +1,431 @@
+
+/* Container */
+.org-structure-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--medicine-light-beige) 0%, var(--medicine-white) 100%);
+  padding: 4rem 1rem;
+}
+
+/* Header Section */
+.org-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.org-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--medicine-primary-red), var(--medicine-primary-orange));
+  color: var(--medicine-white);
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.org-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--medicine-primary-brown);
+  margin-bottom: 1rem;
+  font-family: var(--font-family-primary);
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--medicine-primary-red), var(--medicine-primary-orange));
+  margin: 1.5rem auto;
+  border-radius: 2px;
+}
+.org-card-image,
+.org-card-image-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.org-card-image img {
+  width: 120px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.org-card-image-small img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.org-subtitle {
+  font-size: 1.2rem;
+  color: var(--medicine-dark-gray);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Organizational Chart */
+.org-chart {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Levels */
+.org-level {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+/* Main Cards */
+.org-card {
+  color: var(--medicine-white);
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  min-width: 390px;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+}
+
+.org-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+
+.org-card-icon i {
+  font-size: 1.5rem;
+}
+
+.org-president .org-card-icon i {
+  color: #8B0000;
+}
+
+.org-dean .org-card-icon i {
+  color: #8B0000;
+}
+
+.org-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.org-card-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  opacity: 0.95;
+}
+
+/* Connection Lines */
+.connection-line {
+  background: linear-gradient(180deg, var(--medicine-primary-red), var(--medicine-primary-brown));
+  margin: 0 auto;
+}
+
+.connection-line.vertical {
+  width: 3px;
+  height: 60px;
+  margin-bottom: 3rem;
+}
+
+.connection-line.vertical.short {
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.connection-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.connection-line.horizontal {
+  width: 80%;
+  height: 3px;
+  max-width: 900px;
+  background: linear-gradient(90deg, var(--medicine-primary-red), var(--medicine-primary-brown));
+}
+
+/* Vice Deans Section */
+.vice-deans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.vice-dean-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.org-vice-dean {
+  background: var(--medicine-white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: 2px solid;
+  text-align: center;
+  width: 100%;
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+.org-vice-dean:hover {
+  transform: translateY(-5px);
+}
+
+.org-card-icon-small {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--medicine-white);
+  margin: 0 auto 1rem;
+}
+
+.org-card-icon-small i {
+  font-size: 1.2rem;
+}
+
+.org-card-title-small {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--medicine-primary-brown);
+  margin-bottom: 0.5rem;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.org-card-name-small {
+  font-size: 0.95rem;
+  color: var(--medicine-dark-gray);
+}
+
+/* Expandable Sections */
+.expandable-sections {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.expandable-section {
+  background: var(--medicine-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.section-header {
+  width: 100%;
+  padding: 1.5rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--medicine-white);
+  transition: var(--transition-fast);
+}
+
+.section-header:hover {
+  opacity: 0.95;
+}
+
+.departments-header {
+  background: linear-gradient(135deg, var(--medicine-primary-red), var(--medicine-primary-brown));
+}
+
+.offices-header {
+  background: linear-gradient(135deg, var(--medicine-primary-brown), var(--medicine-primary-orange));
+}
+
+.section-header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-header i {
+  font-size: 1.5rem;
+}
+
+/* Section Content */
+.section-content {
+  padding: 2rem;
+  animation: slideDown 0.3s ease;
+}
+
+/* Departments Grid */
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.department-card {
+  padding: 1.5rem;
+  border: 2px solid;
+  border-radius: 12px;
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+.department-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.department-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--medicine-white);
+  margin-bottom: 1rem;
+}
+
+.department-icon i {
+  font-size: 1.1rem;
+}
+
+.department-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--medicine-primary-brown);
+  margin-bottom: 0.5rem;
+}
+
+.department-label {
+  font-size: 0.9rem;
+  color: var(--medicine-dark-gray);
+  margin-bottom: 0.25rem;
+}
+
+.department-head {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Offices Grid */
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmin(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.office-card {
+  padding: 1.5rem;
+  border: 2px solid;
+  border-radius: 12px;
+  background: var(--medicine-white);
+  text-align: center;
+  transition: var(--transition-normal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.office-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.office-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--medicine-white);
+  margin: 0 auto 1rem;
+}
+
+.office-icon i {
+  font-size: 1.2rem;
+}
+
+.office-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--medicine-primary-brown);
+  margin-bottom: 0.5rem;
+}
+
+.office-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .org-title {
+    font-size: 2.25rem;
+  }
+  
+  .org-card {
+    min-width: 280px;
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .org-title {
+    font-size: 2rem;
+  }
+  
+  .org-card {
+    min-width: 100%;
+  }
+  
+  .connection-line.horizontal {
+    width: 90%;
+  }
+  
+  .vice-deans-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .org-structure-container {
+    padding: 2rem 0.5rem;
+  }
+  
+  .org-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-header {
+    font-size: 1.1rem;
+  }
+}

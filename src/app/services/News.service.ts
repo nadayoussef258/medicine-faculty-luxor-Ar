@@ -15,7 +15,7 @@ export class NewsService {
       publishDate: new Date('2024-08-13'),
       publishTime: '10:00 AM',
       tags: ['Academic News', 'Research'],
-      images: [{ url: 'assets/slider2.jpg', caption: 'Center opening', altText: 'Center of Excellence' }],
+      images: [{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'}],
       thumbnailImage: 'assets/slider2.jpg',
       author: 'University Administration',
       category: 'Academic News'
@@ -28,7 +28,7 @@ export class NewsService {
       publishDate: new Date('2024-08-10'),
       publishTime: '11:00 AM',
       tags: ['International Cooperation', 'Exchange'],
-      images: [{ url: 'assets/slider3.jpg', caption: 'Signing ceremony', altText: 'Cooperation agreement' }],
+      images: [{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'}],
       thumbnailImage: 'assets/slider3.jpg',
       author: 'University Administration',
       category: 'International Cooperation'
@@ -41,7 +41,7 @@ export class NewsService {
       publishDate: new Date('2024-08-08'),
       publishTime: '12:00 PM',
       tags: ['Academic Programs', 'AI', 'Research'],
-      images: [{ url: 'assets/slider3.jpg', caption: 'Program launch', altText: 'AI Master’s program' }],
+      images: [{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'}],
       thumbnailImage: 'assets/slider3.jpg',
       author: 'University Administration',
       category: 'Academic Programs'
@@ -54,7 +54,7 @@ export class NewsService {
       publishDate: new Date('2024-08-05'),
       publishTime: '1:00 PM',
       tags: ['Student Achievements', 'Robotics', 'AI'],
-      images: [{ url: 'assets/slider2.jpg', caption: 'Winning team', altText: 'Robotics competition' }],
+      images: [{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'}],
       thumbnailImage: 'assets/slider2.jpg',
       author: 'University Administration',
       category: 'Student Achievements'
@@ -67,7 +67,7 @@ export class NewsService {
       publishDate: new Date('2024-08-01'),
       publishTime: '2:00 PM',
       tags: ['Conferences', 'Sustainable Development', 'Research'],
-      images: [{ url: 'assets/slider3.jpg', caption: 'Conference hall', altText: 'Sustainable development conference' }],
+      images: [{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'}],
       thumbnailImage: 'assets/slider3.jpg',
       author: 'University Administration',
       category: 'Conferences'
@@ -80,7 +80,7 @@ export class NewsService {
       publishDate: new Date('2024-07-28'),
       publishTime: '3:00 PM',
       tags: ['Infrastructure Development', 'Modernization'],
-      images: [{ url: 'assets/slider2.jpg', caption: 'New facilities', altText: 'Infrastructure development' }],
+      images: [{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'},{ url: 'assets/slider2.jpg', caption: 'New facilities'}],
       thumbnailImage: 'assets/slider2.jpg',
       author: 'University Administration',
       category: 'Infrastructure Development'
@@ -111,5 +111,28 @@ export class NewsService {
         tags: n.tags
       }));
     return of(related);
+  }
+
+  getRelatedItems(id: string, type: string, limit: number = 5): Observable<NewsArticle[]> {
+    const current = this.mockNewsData.find(n => n.id === id);
+    if (!current) return of([]);
+    const related = this.mockNewsData
+      .filter(n => n.id !== id && n.tags.some(tag => current.tags.includes(tag)))
+      .slice(0, limit);
+    return of(related);
+  }
+
+  getNextItem(id: string): Observable<NewsArticle | null> {
+    const sorted = this.mockNewsData.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+    const index = sorted.findIndex(n => n.id === id);
+    if (index > 0) return of(sorted[index - 1]);
+    return of(null);
+  }
+
+  getPreviousItem(id: string): Observable<NewsArticle | null> {
+    const sorted = this.mockNewsData.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+    const index = sorted.findIndex(n => n.id === id);
+    if (index < sorted.length - 1) return of(sorted[index + 1]);
+    return of(null);
   }
 }

@@ -6,6 +6,7 @@ interface Position {
   name: string;
   icon: string;
   color: string;
+  email?:string;
   image?: string | null;
 }
 
@@ -40,6 +41,7 @@ offices: Position[] = [
     name: 'Mr. Mohamed Hussein Ali',
     icon: 'fa-briefcase',
     color: '#5D4037',
+    
     image: null
   },
   {
@@ -71,6 +73,7 @@ dean: Position = {
   name: 'Prof. Dr.Mohamed Shahat Badawy',
   icon: 'fa-graduation-cap',
   color: '#8B0000',
+  email:'dean.medicinefaculty@medicine.luxor.edu.eg',
   image: 'assets/dean.png'
 };
 

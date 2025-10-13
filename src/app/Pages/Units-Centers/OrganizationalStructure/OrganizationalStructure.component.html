@@ -1,0 +1,133 @@
+<div class="org-structure-container">
+  <!-- Header Section -->
+  <div class="org-header">
+    <div class="org-badge">ORGANIZATIONAL STRUCTURE</div>
+
+    <h1 class="org-title">Faculty of Medicine - Luxor University</h1>
+
+    <div class="title-underline"></div>
+
+    <p class="org-subtitle">Administrative and Academic Organization of the Faculty of Medicine</p>
+  </div>
+
+  <!-- Organizational Chart -->
+  <div class="org-chart">
+    <!-- Level 1: University President -->
+   
+
+    <!-- Connection Line -->
+
+    <!-- Level 2: College Dean -->
+    <div class="org-level org-level-2">
+      <div
+        class="org-card org-dean"
+        [style.background]="'linear-gradient(135deg, ' + dean.color + ', ' + dean.color + 'dd)'"
+      >
+        <div class="org-card-image">
+          <img [src]="dean.image" alt="{{ dean.name }}" />
+        </div>
+
+        <h3 class="org-card-title">{{ dean.title }}</h3>
+        <p class="org-card-name">{{ dean.name }}</p>
+      </div>
+    </div>
+
+    <!-- Connection Lines to Vice Deans -->
+    <div class="connection-line vertical short"></div>
+    <div class="connection-wrapper">
+      <div class="connection-line horizontal"></div>
+    </div>
+
+    <!-- Level 3: Vice Deans -->
+    <div class="org-level org-level-3">
+      <div class="vice-deans-grid">
+        <div *ngFor="let viceDean of viceDeans" class="vice-dean-wrapper">
+          <div class="connection-line vertical short"></div>
+          <div class="org-card org-vice-dean" [style.border-color]="viceDean.color">
+            <div class="org-card-image-small">
+              <img [src]="viceDean.image" alt="{{ viceDean.name }}" />
+            </div>
+            <h4 class="org-card-title-small">{{ viceDean.title }}</h4>
+            <p class="org-card-name-small">{{ viceDean.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connection-line vertical"></div>
+
+     <div class="org-level org-level-1">
+      <div
+        class="org-card org-president"
+        [style.background]="
+          'linear-gradient(135deg, ' + president.color + ', ' + president.color + 'dd)'
+        "
+      >
+        <div class="org-card-image">
+          <img [src]="president.image" alt="{{ president.name }}" />
+        </div>
+
+        <h3 class="org-card-title">{{ president.title }}</h3>
+        <p class="org-card-name">{{ president.name }}</p>
+      </div>
+    </div>
+
+    <!-- Expandable Sections -->
+    <div class="expandable-sections">
+      <!-- Departments Section -->
+      <!-- <div class="expandable-section">
+        <button class="section-header departments-header" (click)="toggleNode('departments')">
+          <span class="section-header-content">
+            <i class="fas fa-award"></i>
+            Academic Departments
+          </span>
+          <i [class]="isExpanded('departments') ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+        </button>
+
+        <div class="section-content" *ngIf="isExpanded('departments')">
+          <div class="departments-grid">
+            <div
+              *ngFor="let dept of departments"
+              class="department-card"
+              [style.border-color]="dept.color"
+              [style.background]="dept.color + '08'"
+            >
+              <div class="department-icon" [style.background]="dept.color">
+                <i [class]="'fas ' + dept.icon"></i>
+              </div>
+              <h5 class="department-title">{{ dept.title }}</h5>
+              <p class="department-label">Head of Department:</p>
+              <p class="department-head" [style.color]="dept.color">{{ dept.head }}</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Administrative Offices Section -->
+      <!-- <div class="expandable-section">
+        <button class="section-header offices-header" (click)="toggleNode('offices')">
+          <span class="section-header-content">
+            <i class="fas fa-briefcase"></i>
+            Administrative Offices
+          </span>
+          <i [class]="isExpanded('offices') ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+        </button>
+
+        <div class="section-content" *ngIf="isExpanded('offices')">
+          <div class="offices-grid">
+            <div
+              *ngFor="let office of offices"
+              class="office-card"
+              [style.border-color]="office.color"
+            >
+              <div class="office-icon" [style.background]="office.color">
+                <i [class]="'fas ' + office.icon"></i>
+              </div>
+              <h5 class="office-title">{{ office.title }}</h5>
+              <p class="office-name" [style.color]="office.color">{{ office.name }}</p>
+            </div>
+          </div>
+        </div> -->
+      <!-- </div> -->
+    </div>
+  </div>
+</div>

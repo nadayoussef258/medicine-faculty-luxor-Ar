@@ -40,7 +40,7 @@ export class MedicineLogoBarComponent {
   @Input() contactInfo: ContactDto = {
     address: 'Luxor - New Tiba City - next to the city hall',
     phone: '(555) 555-1234',
-    email: 'info@medicare.com',
+    email: 'faculty.medicine@medicine.luxor.edu.eg',
     website: 'http://www.luxor.edu.eg',
     facebook: 'https://www.facebook.com/كلية الطب جامعة-الاقصر/112526971198533/',
   };
@@ -48,7 +48,7 @@ export class MedicineLogoBarComponent {
   constructor(private router: Router) { }
 
   openLocation(): void {
-    window.open('https://maps.app.goo.gl/BMJvNXCY6eSSU7JA7', '_blank');
+    window.open(' https://maps.app.goo.gl/BMJvNXCY6eSSU7JA7', '_blank');
   }
 
   openPhone(phone: string): void {

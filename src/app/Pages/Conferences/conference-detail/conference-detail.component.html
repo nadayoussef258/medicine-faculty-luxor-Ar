@@ -3,7 +3,7 @@
     <div class="back-button">
       <button class="back-btn" (click)="goBack()">
         <i class="pi pi-arrow-right"></i>
-        Back to News
+        Back to Conferences
       </button>
     </div>
     <div class="news-detail-split">
@@ -27,12 +27,43 @@
           </span>
         </div>
         <div class="news-author-row">
-          <span class="author-label">By:</span>
-          <span class="author-name">{{ conferenceData.author }}</span>
+          <span class="author-label">Organizer:</span>
+          <span class="author-name">{{ conferenceData.organizer }}</span>
         </div>
         <div class="news-summary">{{ conferenceData.summary }}</div>
         <div class="news-content">
-          <p *ngFor="let paragraph of conferenceData.content">{{ paragraph }}</p>
+          <p *ngFor="let paragraph of conferenceData.details">{{ paragraph }}</p>
+        </div>
+        <div class="conference-meta">
+          <div class="meta-item">
+            <i class="fas fa-clock"></i>
+            <span>Duration: {{ conferenceData.duration }}</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Location: {{ conferenceData.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Conferences Section -->
+    <div class="related-conferences-section" *ngIf="relatedConferences.length > 0">
+      <h2 class="related-title">Related Conferences</h2>
+      <div class="related-conferences-grid">
+        <div class="related-conference-card" *ngFor="let conf of relatedConferences.slice(0, 3)">
+          <div class="related-image-wrapper">
+            <img [src]="conf.images[0]" [alt]="conf.title" />
+          </div>
+          <div class="related-content">
+            <h3>{{ conf.title }}</h3>
+            <p>{{ conf.summary }}</p>
+            <div class="related-meta">
+              <span class="related-category">{{ conf.category }}</span>
+              <span class="related-date">{{ formatDate(conf.date) }}</span>
+            </div>
+            <a [routerLink]="['/conference/detail', conf.id]" class="related-link">View Details</a>
+          </div>
         </div>
       </div>
     </div>

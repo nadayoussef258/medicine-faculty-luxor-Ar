@@ -51,7 +51,7 @@ export class MedicineFooterComponent {
     description: 'Faculty of Medicine – Luxor University: Shaping future doctors with knowledge, compassion, and innovation.',
     address: "Luxor - New Tiba City - next to the city hall",
     phone: '(094) 123 4567 - (094) 123 4568',
-    email: 'www.luxor.edu.eg'
+    email: 'faculty.medicine@medicine.luxor.edu.eg'
   };
 
   @Input() quickLinks: FooterQuickLink[] = [

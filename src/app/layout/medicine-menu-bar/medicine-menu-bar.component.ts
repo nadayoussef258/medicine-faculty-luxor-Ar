@@ -96,28 +96,27 @@ export class MedicineMenuBarComponent {
       childs: [
         {
           title: 'Academic Departments',
-          target: '/academic-departments',
+          target: '/scientific-departments/academic-departments',
           order: 1,
           menuTypeId: 'sub',
           childs: [
-            { title: 'Anatomy', target: '/anatomy', order: 1, menuTypeId: 'subsub' },
-            { title: 'Physiology', target: '/physiology', order: 2, menuTypeId: 'subsub' },
-            { title: 'Biochemistry', target: '/biochemistry', order: 3, menuTypeId: 'subsub' },
-            { title: 'Pathology', target: '/pathology', order: 4, menuTypeId: 'subsub' },
-            { title: 'Pharmacology', target: '/pharmacology', order: 5, menuTypeId: 'subsub' }
+            { title: 'Anatomy', target: '/scientific-departments/1', order: 1, menuTypeId: 'subsub' },
+            { title: 'Physiology', target: '/scientific-departments/2', order: 2, menuTypeId: 'subsub' },
+            { title: 'Biochemistry', target: '/scientific-departments/3', order: 3, menuTypeId: 'subsub' },
+            { title: 'Pathology', target: '/scientific-departments/4', order: 4, menuTypeId: 'subsub' },
+            { title: 'Pharmacology', target: '/scientific-departments/5', order: 5, menuTypeId: 'subsub' }
           ]
         },
         {
           title: 'Clinical Departments',
-          target: '/clinical-departments',
+          target: '/scientific-departments/clinical-departments',
           order: 2,
           menuTypeId: 'sub',
           childs: [
-            { title: 'Internal Medicine', target: '/internal-medicine', order: 1, menuTypeId: 'subsub' },
-            { title: 'Surgery', target: '/surgery', order: 2, menuTypeId: 'subsub' },
-            { title: 'Pediatrics', target: '/pediatrics', order: 3, menuTypeId: 'subsub' },
-            { title: 'Obstetrics and Gynecology', target: '/obgyn', order: 4, menuTypeId: 'subsub' },
-            { title: 'Radiology', target: '/radiology', order: 5, menuTypeId: 'subsub' }
+            { title: 'Internal Medicine', target: '/scientific-departments/6', order: 1, menuTypeId: 'subsub' },
+            { title: 'Surgery', target: '/scientific-departments/7', order: 2, menuTypeId: 'subsub' },
+            { title: 'Pediatrics', target: '/scientific-departments/8', order: 3, menuTypeId: 'subsub' },
+            { title: 'Radiology', target: '/scientific-departments/9', order: 5, menuTypeId: 'subsub' }
           ]
         }
       ]
@@ -125,26 +124,21 @@ export class MedicineMenuBarComponent {
     {
       id: '5',
       title: 'Centers and Units',
-      target: '/centers-units',
+      target: '/units-centers',
       order: 5,
       menuTypeId: 'main',
-    type: "columns",
-
+      type: "menu",
       childs: [
-        { title: 'Centers', target: '/centers', order: 1, menuTypeId: 'sub', childs: [
-            { title: 'Anatomy', target: '/anatomy', order: 1, menuTypeId: 'subsub' },
-            { title: 'Physiology', target: '/physiology', order: 2, menuTypeId: 'subsub' },
-            { title: 'Biochemistry', target: '/biochemistry', order: 3, menuTypeId: 'subsub' },
-            { title: 'Pathology', target: '/pathology', order: 4, menuTypeId: 'subsub' },
-            { title: 'Pharmacology', target: '/pharmacology', order: 5, menuTypeId: 'subsub' }
-          ] },
-        { title: 'Units', target: '/units', order: 2, menuTypeId: 'sub', childs: [
-            { title: 'Anatomy', target: '/anatomy', order: 1, menuTypeId: 'subsub' },
-            { title: 'Physiology', target: '/physiology', order: 2, menuTypeId: 'subsub' },
-            { title: 'Biochemistry', target: '/biochemistry', order: 3, menuTypeId: 'subsub' },
-            { title: 'Pathology', target: '/pathology', order: 4, menuTypeId: 'subsub' },
-            { title: 'Pharmacology', target: '/pharmacology', order: 5, menuTypeId: 'subsub' }
-          ] }
+        { title: 'Medical Research Center', target: '/units-centers/1', order: 1, menuTypeId: 'sub' },
+        { title: 'Clinical Training Unit', target: '/units-centers/2', order: 2, menuTypeId: 'sub' },
+        { title: 'Public Health Unit', target: '/units-centers/3', order: 3, menuTypeId: 'sub' },
+        { title: 'Biotechnology Center', target: '/units-centers/4', order: 4, menuTypeId: 'sub' },
+        { title: 'Nursing Education Unit', target: '/units-centers/5', order: 5, menuTypeId: 'sub' },
+        { title: 'Pharmacy Practice Unit', target: '/units-centers/6', order: 6, menuTypeId: 'sub' },
+        { title: 'Medical Imaging Center', target: '/units-centers/7', order: 7, menuTypeId: 'sub' },
+        { title: 'Health Informatics Unit', target: '/units-centers/8', order: 8, menuTypeId: 'sub' },
+        { title: 'Emergency Medicine Unit', target: '/units-centers/9', order: 9, menuTypeId: 'sub' },
+        { title: 'Mental Health Center', target: '/units-centers/10', order: 10, menuTypeId: 'sub' }
       ]
     },
     {
@@ -161,12 +155,20 @@ export class MedicineMenuBarComponent {
       target: '/staff-members',
       order: 7,
       menuTypeId: 'main'
-    },
+    }
+    ,
     {
       id: '8',
+      title: 'Protocols',
+      target: '/protocols',
+      order: 8,
+      menuTypeId: 'main'
+    },
+    {
+      id: '9',
       title: 'News',
       target: '/news',
-      order: 8,
+      order: 9,
       menuTypeId: 'main'
     }
   ];

@@ -1,0 +1,19 @@
+<div class="director-section" *ngIf="director">
+  <h2 class="section-title">Director's Message</h2>
+  <div class="director-card">
+    <div class="director-image-wrapper" data-aos="fade-right">
+      <img [src]="director.ImageUrl" [alt]="director.Name" class="director-image">
+      
+    </div>
+    <div class="director-content" data-aos="fade-left">
+      <div class="director-info">
+        <h3 class="director-name">{{ director.Name }}</h3>
+        <p class="director-title">{{ director.Title }}</p>
+      </div>
+      <div class="director-message">
+        <div class="quote-icon">"</div>
+        <p class="message-text">{{ director.Message }}</p>
+      </div>
+    </div>
+  </div>
+</div>

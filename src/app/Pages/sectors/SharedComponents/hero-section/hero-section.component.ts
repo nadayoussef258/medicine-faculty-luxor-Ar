@@ -11,7 +11,7 @@ import { AddSectorDto } from '../../../../Models/sectors';
   styleUrl: './hero-section.component.css'
 })
 export class SharedHeroSectionComponent {
-   @Input()  sectors:AddSectorDto={} as AddSectorDto;
+   @Input()  sectors:any;
    
  
 }

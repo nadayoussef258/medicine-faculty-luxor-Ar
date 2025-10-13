@@ -6,7 +6,7 @@ import { DepartmentsGridComponent } from './departments-grid/departments.compone
 
 
 @Component({
-  selector: 'app-staff-members',
+  selector: 'app-departments',
   standalone: true,
   imports: [
     CommonModule,

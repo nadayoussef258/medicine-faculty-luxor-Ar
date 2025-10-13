@@ -1,0 +1,13 @@
+.course-descriptions {
+  padding: 20px;
+}
+
+.course-descriptions h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.course-descriptions p {
+  font-size: 16px;
+  line-height: 1.6;
+}

@@ -1,0 +1,13 @@
+.job-description-guide {
+  padding: 20px;
+}
+
+.job-description-guide h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.job-description-guide p {
+  font-size: 16px;
+  line-height: 1.6;
+}

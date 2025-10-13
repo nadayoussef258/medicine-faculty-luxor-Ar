@@ -1,9 +1,19 @@
 <!-- news-content.component.html -->
 <div class="news-content" *ngIf="article">
+  <!-- نوع المقال والفئة -->
+  <div class="article-type-badge">
+    <span class="badge" [class.badge-event]="article.type === 'event'">
+      {{ getArticleTypeLabel() }}
+    </span>
+    <span class="category-badge" *ngIf="article.category">
+      {{ article.category }}
+    </span>
+  </div>
+
   <!-- عنوان الخبر -->
   <h1 class="news-title">{{ article.title }}</h1>
-  
-  <!-- التاريخ والناشر -->
+
+  <!-- التاريخ والناشر والكاتب -->
   <div class="news-meta">
     <span class="news-date">
       <i class="pi pi-calendar"></i>
@@ -13,56 +23,111 @@
       <i class="pi pi-clock"></i>
       {{ article.publishTime }}
     </span>
-    <span class="news-updated" *ngIf="article.lastUpdate">
-      <i class="pi pi-refresh"></i>
-      آخر تحديث: {{ article.lastUpdate | date: 'dd.MM.yyyy - HH:mm' }}
+    <span class="news-author" *ngIf="article.author">
+      <i class="pi pi-user"></i>
+      {{ article.author }}
     </span>
   </div>
 
   <!-- التاجز -->
-  <div class="news-tags">
-    <p-chip 
-      *ngFor="let tag of article.tags" 
+  <div class="news-tags" *ngIf="article.tags && article.tags.length > 0">
+    <p-chip
+      *ngFor="let tag of article.tags"
       [label]="tag"
       styleClass="news-tag">
     </p-chip>
   </div>
 
-  <!-- الصورة الأساسية -->
-  <div class="main-image-container" *ngIf="article.images && article.images.length > 0">
-    <img 
-      [src]="article.images[selectedImageIndex].url" 
-      [alt]="article.images[selectedImageIndex].caption || article.title"
-      class="main-image">
-    
-    <div class="image-caption" *ngIf="article.images[selectedImageIndex].caption">
-      {{ article.images[selectedImageIndex].caption }}
-    </div>
-  </div>
+  <!-- صالة العرض الرئيسية للصور -->
+  <div class="gallery-container" *ngIf="article.images && article.images.length > 0">
+    <!-- الصورة الكبيرة الرئيسية -->
+    <div class="main-image-wrapper">
+      <!-- زر السابق -->
+      <button
+        class="gallery-nav-btn prev-btn"
+        (click)="previousImage()"
+        [disabled]="!hasMultipleImages"
+        aria-label="الصورة السابقة"
+        *ngIf="hasMultipleImages">
+        <i class="pi pi-chevron-left"></i>
+      </button>
 
-  <!-- الصور الصغيرة (thumbnails) -->
-  <div class="thumbnails-container" *ngIf="article.images && article.images.length > 1">
-    <div 
-      class="thumbnail" 
-      *ngFor="let image of article.images; let i = index"
-      [class.active]="i === selectedImageIndex"
-      (click)="selectImage(i)">
-      <img [src]="image.url" [alt]="image.caption || article.title">
+      <!-- الصورة الأساسية -->
+      <div class="main-image-container">
+        <img
+          [src]="article.images[selectedImageIndex].url"
+          [alt]="article.images[selectedImageIndex].caption || article.title"
+          class="main-image">
+        
+        <div class="image-caption" *ngIf="article.images[selectedImageIndex].caption">
+          {{ article.images[selectedImageIndex].caption }}
+        </div>
+
+        <!-- عداد الصور -->
+        <div class="image-counter" *ngIf="hasMultipleImages">
+          {{ selectedImageIndex + 1 }} / {{ article.images.length }}
+        </div>
+      </div>
+
+      <!-- زر التالي -->
+      <button
+        class="gallery-nav-btn next-btn"
+        (click)="nextImage()"
+        [disabled]="!hasMultipleImages"
+        aria-label="الصورة التالية"
+        *ngIf="hasMultipleImages">
+        <i class="pi pi-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- الصور الصغيرة (thumbnails) -->
+    <div class="thumbnails-section" *ngIf="hasMultipleImages">
+      <!-- زر التمرير السابق -->
+      <button
+        class="thumbnail-nav-btn prev"
+        (click)="prevThumbnails()"
+        [disabled]="!canPrevThumbnails"
+        aria-label="الصور السابقة">
+        <i class="pi pi-chevron-right"></i>
+      </button>
+
+      <!-- حاوية الصور الصغيرة -->
+      <div class="thumbnails-container">
+        <div
+          class="thumbnail"
+          *ngFor="let image of article.images | slice:thumbnailStartIndex:thumbnailStartIndex + visibleThumbnails; let i = index"
+          [class.active]="(thumbnailStartIndex + i) === selectedImageIndex"
+          (click)="selectImage(thumbnailStartIndex + i)"
+          [title]="image.caption || 'صورة ' + (thumbnailStartIndex + i + 1)">
+          <img [src]="image.url" [alt]="image.caption || article.title">
+        </div>
+      </div>
+
+      <!-- زر التمرير التالي -->
+      <button
+        class="thumbnail-nav-btn next"
+        (click)="nextThumbnails()"
+        [disabled]="!canNextThumbnails"
+        aria-label="الصور التالية">
+        <i class="pi pi-chevron-left"></i>
+      </button>
     </div>
   </div>
 
   <!-- وصف الخبر -->
   <div class="news-description">
     <p class="news-summary">{{ article.summary }}</p>
-    
+
     <div class="news-content-body" [innerHTML]="article.content"></div>
   </div>
 
   <!-- فيديو إن وُجد -->
   <div class="news-video" *ngIf="article.videoUrl">
-    <video controls class="video-player">
-      <source [src]="article.videoUrl" type="video/mp4">
-      متصفحك لا يدعم تشغيل الفيديو
-    </video>
+    <div class="video-container">
+      <video controls class="video-player">
+        <source [src]="article.videoUrl" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو
+      </video>
+    </div>
   </div>
 </div>

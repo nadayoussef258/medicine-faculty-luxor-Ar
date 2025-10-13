@@ -1,0 +1,36 @@
+<div class="related-news-container">
+  <h2 class="related-news-title">
+    <span class="title-underline">أخبار ذات صلة</span>
+  </h2>
+
+  <div class="related-news-list" *ngIf="relatedNews && relatedNews.length > 0">
+    <div
+      class="news-item"
+      *ngFor="let news of relatedNews"
+      (click)="navigateToNews(news.id)"
+    >
+      <div class="news-item-image">
+        <img [src]="news.images[0]" [alt]="news.title" />
+      </div>
+      <div class="news-item-content">
+        <h3 class="news-item-title">{{ news.title }}</h3>
+        <span class="news-item-date">
+          <i class="pi pi-calendar"></i>
+          {{ news.date | date:'EEEE, MMMM d, yyyy'}}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-related-news" *ngIf="!relatedNews || relatedNews.length === 0">
+    <i class="pi pi-info-circle"></i>
+    <p>لا توجد أخبار ذات صلة حالياً</p>
+  </div>
+
+  <div class="back-button-container">
+    <button class="back-button" (click)="navigateToNews(0)">
+      <i class="pi pi-arrow-right"></i>
+      العودة إلى المؤتمرات
+    </button>
+  </div>
+</div>

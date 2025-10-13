@@ -1,11 +1,12 @@
-<!-- news-detail.component.html -->
 <div class="news-detail-container" *ngIf="!loading">
-  <div class="p-grid">
-    <div class="p-col-12 p-lg-8">
-      <app-news-content [article]="newsArticle"></app-news-content>
+  <div class="news-detail-grid">
+    <!-- الخبر الرئيسي -->
+    <div class="main-article">
+      <app-news-content [article]="newsArticle ?? null"></app-news-content>
     </div>
-    
-    <div class="p-col-12 p-lg-4">
+
+    <!-- الأخبار ذات الصلة -->
+    <div class="related-articles">
       <app-related-news [relatedNews]="relatedNews"></app-related-news>
     </div>
   </div>

@@ -1,0 +1,127 @@
+<!-- conference-content.component.html -->
+<div class="news-content" *ngIf="article">
+  <!-- نوع المقال والفئة -->
+  <div class="article-type-badge">
+    <span class="badge">
+      {{ getArticleTypeLabel() }}
+    </span>
+    <span class="category-badge" *ngIf="article.category">
+      {{ article.category }}
+    </span>
+  </div>
+
+  <!-- عنوان المؤتمر -->
+  <h1 class="news-title">{{ article.title }}</h1>
+
+  <!-- التاريخ والمنظم والمدة -->
+  <div class="news-meta">
+    <span class="news-date">
+      <i class="pi pi-calendar"></i>
+      {{ article.date | date: 'dd.MM.yyyy' }}
+    </span>
+    <span class="news-organizer" *ngIf="article.organizer">
+      <i class="pi pi-building"></i>
+      {{ article.organizer }}
+    </span>
+    <span class="news-duration" *ngIf="article.duration">
+      <i class="pi pi-clock"></i>
+      {{ article.duration }}
+    </span>
+    <span class="news-location" *ngIf="article.location">
+      <i class="pi pi-map-marker"></i>
+      {{ article.location }}
+    </span>
+  </div>
+
+  <!-- التاجز -->
+  <div class="news-tags" *ngIf="article.tags && article.tags.length > 0">
+    <p-chip
+      *ngFor="let tag of article.tags"
+      [label]="tag"
+      styleClass="news-tag">
+    </p-chip>
+  </div>
+
+  <!-- صالة العرض الرئيسية للصور -->
+  <div class="gallery-container" *ngIf="article.images && article.images.length > 0">
+    <!-- الصورة الكبيرة الرئيسية -->
+    <div class="main-image-wrapper">
+      <!-- زر السابق -->
+      <button
+        class="gallery-nav-btn prev-btn"
+        (click)="previousImage()"
+        [disabled]="!hasMultipleImages"
+        aria-label="الصورة السابقة"
+        *ngIf="hasMultipleImages">
+        <i class="pi pi-chevron-left"></i>
+      </button>
+
+      <!-- الصورة الأساسية -->
+      <div class="main-image-container">
+        <img
+          [src]="article.images[selectedImageIndex]"
+          [alt]="article.title"
+          class="main-image">
+
+        <!-- عداد الصور -->
+        <div class="image-counter" *ngIf="hasMultipleImages">
+          {{ selectedImageIndex + 1 }} / {{ article.images.length }}
+        </div>
+      </div>
+
+      <!-- زر التالي -->
+      <button
+        class="gallery-nav-btn next-btn"
+        (click)="nextImage()"
+        [disabled]="!hasMultipleImages"
+        aria-label="الصورة التالية"
+        *ngIf="hasMultipleImages">
+        <i class="pi pi-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- الصور الصغيرة (thumbnails) -->
+    <div class="thumbnails-section" *ngIf="hasMultipleImages">
+      <!-- زر التمرير السابق -->
+      <button
+        class="thumbnail-nav-btn prev"
+        (click)="prevThumbnails()"
+        [disabled]="!canPrevThumbnails"
+        aria-label="الصور السابقة">
+        <i class="pi pi-chevron-right"></i>
+      </button>
+
+      <!-- حاوية الصور الصغيرة -->
+      <div class="thumbnails-container">
+        <div
+          class="thumbnail"
+          *ngFor="let image of article.images | slice:thumbnailStartIndex:thumbnailStartIndex + visibleThumbnails; let i = index"
+          [class.active]="(thumbnailStartIndex + i) === selectedImageIndex"
+          (click)="selectImage(thumbnailStartIndex + i)"
+          [title]="'صورة ' + (thumbnailStartIndex + i + 1)">
+          <img [src]="image" [alt]="article.title">
+        </div>
+      </div>
+
+      <!-- زر التمرير التالي -->
+      <button
+        class="thumbnail-nav-btn next"
+        (click)="nextThumbnails()"
+        [disabled]="!canNextThumbnails"
+        aria-label="الصور التالية">
+        <i class="pi pi-chevron-left"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- وصف المؤتمر -->
+  <div class="news-description">
+    <p class="news-summary">{{ article.summary }}</p>
+
+    <div class="conference-details">
+      <div *ngFor="let detail of article.details" class="detail-item">
+        <p>{{ detail }}</p>
+      </div>
+    </div>
+  </div>
+</div>

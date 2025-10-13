@@ -1,0 +1,17 @@
+<div class="news-detail-container" *ngIf="!loading">
+  <div class="news-detail-grid">
+    <!-- المؤتمر الرئيسي -->
+    <div class="main-article">
+      <app-events-content [article]="conference ?? null"></app-events-content>
+    </div>
+
+    <!-- المؤتمرات ذات الصلة -->
+    <div class="related-articles">
+      <app-related-events [relatedNews]="relatedConferences" *ngIf="relatedConferences && relatedConferences.length > 0"></app-related-events>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <p-progressSpinner></p-progressSpinner>
+</div>
