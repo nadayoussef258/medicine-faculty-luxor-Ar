@@ -50,13 +50,6 @@ offices: Position[] = [
     icon: 'fa-users',
     color: '#FF8F00',
     image: null
-  },
-  {
-    title: 'Director of Administrative Affairs',
-    name: 'Mr. Abdelrahman Tarek',
-    icon: 'fa-file-alt',
-    color: '#00796B',
-    image: null
   }
 ];
 
@@ -90,13 +83,6 @@ viceDeans: Position[] = [
     name: 'Prof. Dr. Khaled Ahmed Ibrahim',
     icon: 'fa-microscope',
     color: '#388E3C',
-  image: 'assets/slider2.jpg'
-  },
-  {
-    title: 'Vice Dean for Community Service and Environmental Affairs',
-    name: 'Prof. Dr. Fatma Ali Mahmoud',
-    icon: 'fa-heart',
-    color: '#00796B',
   image: 'assets/slider2.jpg'
   }
 ];

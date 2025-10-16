@@ -8,7 +8,7 @@ import { ScientificDepartmentsService } from '../../../services/scientific-depar
 import { DirectorMessageComponent } from '../../sectors/SharedComponents/director-message/director-message.component';
 import { SectorServicesComponent } from '../../sectors/SharedComponents/sector-services/sector-services.component';
 import { SectorDepartmentsComponent } from '../../sectors/SharedComponents/sector-departments/sector-departments.component';
-import { StaffMembersComponent } from '../../StaffMembers/staff-members.component';
+import { StaffGridComponent } from "../../StaffMembers/staff-grid/staff-grid.component";
 
 @Component({
   selector: 'app-parent-about-department',
@@ -21,8 +21,9 @@ import { StaffMembersComponent } from '../../StaffMembers/staff-members.componen
     VisionMissionGoalsComponent,
     SectorServicesComponent,
     SectorDepartmentsComponent,
-    StaffMembersComponent
-  ],
+    
+    StaffGridComponent
+],
   templateUrl: './parent-about-sector.component.html',
   styleUrls: ['./parent-about-sector.component.css']
 })
