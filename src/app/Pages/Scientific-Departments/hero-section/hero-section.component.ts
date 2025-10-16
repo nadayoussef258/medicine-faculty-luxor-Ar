@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Department } from '../../../Models/departments';
 
 @Component({
   selector: 'app-departments-hero',
@@ -9,8 +10,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './hero-section.component.css'
 })
 export class DepartmentsHeroSectionComponent {
-  heroData = {
-    title: 'Faculty Departments',
-    subtitle: 'Get to know the faculty departments at Luxor University'
-  };
+  @Input() department: Department | undefined;
+
+  get heroData() {
+    return {
+      title: this.department?.Name || 'Faculty Departments',
+      subtitle: this.department?.description || 'Get to know the faculty departments at Luxor University'
+    };
+  }
 }

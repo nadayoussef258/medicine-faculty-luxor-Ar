@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ScientificDepartmentsService } from '../../services/scientific-departments.service';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import { SharedHeroSectionComponent } from '../sectors/SharedComponents/hero-section/hero-section.component';
 import { TabMenuComponent } from '../sectors/SharedComponents/tab-menu/tab-menu.component';
+import { DepartmentsHeroSectionComponent } from './hero-section/hero-section.component';
 import { Department } from '../../Models/departments';
 
 @Component({
   selector: 'app-scientific-departments',
   standalone: true,
-  imports: [SharedHeroSectionComponent, TabMenuComponent, RouterOutlet],
+  imports: [ TabMenuComponent, DepartmentsHeroSectionComponent, RouterOutlet],
   templateUrl: './scientific-departments.component.html',
   styleUrls: ['./scientific-departments.component.css']
 })
