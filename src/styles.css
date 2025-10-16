@@ -281,17 +281,7 @@ iframe {
   h3 { font-size: 1.125rem; }
 }
 
-/* ===============================================
-   🌙 Dark Theme Support (Optional)
-   =============================================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --medicine-white: #1a1a1a;
-    --medicine-light-gray: #2d2d2d;
-    --medicine-dark-gray: #e0e0e0;
-    --medicine-primary-brown: #d7ccc8;
-  }
-}
+
 
 /* ===============================================
    🏥 Medical Theme Enhancements

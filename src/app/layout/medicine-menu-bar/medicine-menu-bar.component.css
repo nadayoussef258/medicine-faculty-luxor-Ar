@@ -637,20 +637,7 @@
   }
 }
 
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --medicine-menu-bg: #1a1a1a;
-    --medicine-menu-text: #ffffff;
-    --medicine-menu-border: #333333;
-    --medicine-menu-hover-bg: #2d2d2d;
-    --medicine-menu-dropdown-bg: #2d2d2d;
-    --medicine-menu-dropdown-text: #ffffff;
-    --medicine-menu-dropdown-hover-bg: #404040;
-    --medicine-menu-dropdown-border: #404040;
-    --medicine-light-beige: #2d2d2d;
-  }
-}
+
 
 /* Focus management for keyboard navigation */
 .menu-link:focus-visible,

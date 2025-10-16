@@ -350,15 +350,7 @@
   }
 }
 
-/* ===============================
-   🌙 Dark Theme Support
-   =============================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --logo-bar-bg: #7f0000;
-    --logo-bar-text: #ffffff;
-  }
-}
+
 
 /* ===============================
    🎭 Animation Effects

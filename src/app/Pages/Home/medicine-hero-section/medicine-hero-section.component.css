@@ -389,15 +389,6 @@
   outline-offset: 2px;
 }
 
-/* ===============================
-   🌙 Dark Theme Support (Optional)
-   =============================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --hero-caption-bg: rgba(0, 0, 0, 0.7);
-    --hero-bg-overlay: rgba(0, 0, 0, 0.6);
-  }
-}
 
 /* ===============================
    🎭 Animation Effects
