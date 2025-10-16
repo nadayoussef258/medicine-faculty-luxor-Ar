@@ -1,20 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-
-export interface MenuTab {
-  id?: string;
-  title: string;
-  target: string;
-  order: number;
-  menuTypeId: string;
-  parentId?: string | null;
-  childs?: MenuTab[];
-  fragment?: string;
-  icon?: string;
-  isActive?: boolean;
-  type?: "menu" | "columns";
-}
+import { MenuTab } from '../../Models/layout';
 
 @Component({
   selector: 'ck-medicine-menu-bar',
@@ -147,7 +134,6 @@ export class MedicineMenuBarComponent {
       target: '/journal',
       order: 6,
       menuTypeId: 'main'
-
     },
     {
       id: '7',

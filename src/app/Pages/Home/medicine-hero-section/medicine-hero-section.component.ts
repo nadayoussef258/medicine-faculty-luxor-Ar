@@ -2,13 +2,8 @@
 import { Component, Input, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HeroSlideDto } from '../../../Models/home';
 
-export interface HeroSlideDto {
-  id: number;
-  imageUrl: string;
-  title: string;
-  subtitle: string;
-}
 
 @Component({
   selector: 'ck-medicine-hero-section',

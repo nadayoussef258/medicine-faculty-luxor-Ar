@@ -1,14 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { DepartmentItem } from '../../../Models/home';
 
-export interface DepartmentItem {
-  id?: string;
-  title: string;
-  description: string;
-  iconPath: string;
-  iconAlt: string;
-}
+
 
 @Component({
   selector: 'ck-departments',

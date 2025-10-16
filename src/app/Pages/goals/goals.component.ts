@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GoalsData } from '../../Models/goals';
+
+ 
 
 @Component({
   selector: 'app-goals',
@@ -9,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './goals.component.css'
 })
 export class GoalsComponent {
-  goalsData = {
+  goalsData: GoalsData = {
   subtitle: 'Our Goals',
   title: 'Goals of the Faculty of Medicine - Luxor University',
   description: 'We strive to achieve a set of strategic goals to ensure excellence in medical education, healthcare services, and scientific research.',

@@ -1,16 +1,7 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NewsItem } from '../../../Models/home';
 
-export interface NewsItem {
-  id: number;
-  title: string;
-  excerpt: string;
-  author: string;
-  specialty: string;
-  date: string;
-  imageUrl: string;
-  readMoreUrl?: string;
-}
 
 @Component({
   selector: 'ck-medicine-news',

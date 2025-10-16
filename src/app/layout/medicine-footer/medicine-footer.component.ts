@@ -1,41 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { FooterContactInfo, FooterPost, FooterQuickLink } from '../../Models/layout';
 
-export interface FooterContactInfo {
-  logoPath: string;
-  logoAlt: string;
-  description: string;
-  address: string;
-  phone: string;
-  email: string;
-}
 
-export interface FooterQuickLink {
-  text: string;
-  url: string;
-  icon?: string;
-}
-
-export interface FooterPost {
-  title: string;
-  url: string;
-  date: string;
-}
-
-export interface FooterSocialLink {
-  icon: string;
-  url: string;
-  title: string;
-}
-
-export interface FooterCopyright {
-  text: string;
-  links: Array<{
-    text: string;
-    url: string;
-  }>;
-}
 
 @Component({
   selector: 'ck-medicine-footer',
@@ -55,14 +23,11 @@ export class MedicineFooterComponent {
   };
 
   @Input() quickLinks: FooterQuickLink[] = [
-    { text: 'Home', url: '/', icon: '+' },
-    // { text: 'About the College', url: '/about-college', icon: '+' },
-    // { text: 'Sectors', url: '/sector', icon: '+' },
-    // { text: 'Scientific Departments', url: '/departments', icon: '+' },
-    { text: 'Centers and Units', url: '/centers-units', icon: '+' },
-    { text: 'College Journal', url: '/journal', icon: '+' },
-    { text: 'Staff Members', url: '/staff-members', icon: '+' },
-    { text: 'News', url: '/news', icon: '+' }
+    { text: 'Home', url: '/'},
+    { text: 'Centers and Units', url: '/centers-units'},
+    { text: 'College Journal', url: '/journal'},
+    { text: 'Staff Members', url: '/staff-members'},
+    { text: 'News', url: '/news'}
   ];
 
   @Input() latestPosts: FooterPost[] = [
@@ -83,32 +48,15 @@ export class MedicineFooterComponent {
     }
   ];
 
- 
-
-  @Input() showNewsletter: boolean = false; // Newsletter section is not included
 
   @Output() linkClick = new EventEmitter<{type: string, item: any}>();
-  @Output() socialClick = new EventEmitter<FooterSocialLink>();
-  @Output() newsletterSubmit = new EventEmitter<string>();
-
-  newsletterEmail: string = '';
-
   constructor() { }
 
   onLinkClick(type: string, item: any): void {
     this.linkClick.emit({ type, item });
   }
 
-  onSocialClick(socialLink: FooterSocialLink): void {
-    this.socialClick.emit(socialLink);
-  }
-
-  onNewsletterSubmit(): void {
-    if (this.newsletterEmail.trim()) {
-      this.newsletterSubmit.emit(this.newsletterEmail);
-      this.newsletterEmail = '';
-    }
-  }
+ 
 
   scrollToTop(): void {
     window.scrollTo({

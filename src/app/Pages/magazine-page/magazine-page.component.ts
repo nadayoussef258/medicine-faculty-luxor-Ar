@@ -1,13 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SharedHeroSectionComponent } from "./hero-section/hero-section.component";
+import { Article } from '../../Models/magazine';
 
-interface Article {
-  id: number;
-  title: string;
-  images: string[];
-  content: string;
-}
+
 @Component({
   selector: 'app-magazine-page',
   imports: [CommonModule, SharedHeroSectionComponent],

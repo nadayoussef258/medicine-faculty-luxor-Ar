@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 export class SharedHeroSectionComponent {
    @Input()  sectors:any;
    
- 
 }
 
 

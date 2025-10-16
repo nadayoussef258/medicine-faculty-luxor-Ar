@@ -1,17 +1,9 @@
 // services.component.ts
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { ServiceItem } from '../../../Models/home';
 
-export interface ServiceItem {
-  id?: string;
-  type: string;
-  category: string;
-  title: string;
-  description: string;
-  iconPath: string;
-  iconAlt: string;
-  readMoreUrl?: string;
-}
+
 
 @Component({
   selector: 'ck-services',
@@ -29,8 +21,6 @@ export class ServicesComponent {
       category: 'Educational ',
       title: 'medical simulation',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget...',
-      iconPath: 'images/icons_box/icon_4/icon-5.png',
-      iconAlt: 'Corneal transplant surgery Icon',
       readMoreUrl: '#'
     },
     {
@@ -39,8 +29,7 @@ export class ServicesComponent {
       category: 'Surgery',
       title: 'Cardiothoracic Surgery', 
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget...',
-      iconPath: 'images/icons_box/icon_4/icon-4.png',
-      iconAlt: 'Cardiothoracic Surgery Icon',
+
       readMoreUrl: '#'
     },
     {
@@ -49,8 +38,7 @@ export class ServicesComponent {
       category: 'Health Check',
       title: 'General health check',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget...',
-      iconPath: 'images/icons_box/icon_4/icon-3.png',
-      iconAlt: 'General health check Icon', 
+  
       readMoreUrl: '#'
     },
     {
@@ -59,8 +47,6 @@ export class ServicesComponent {
       category: 'Training ',
       title: 'Training courses ',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget...',
-      iconPath: 'images/icons_box/icon_4/icon-2.png',
-      iconAlt: 'Cancer treatment Icon',
       readMoreUrl: '#'
     },
     {
@@ -69,8 +55,7 @@ export class ServicesComponent {
       category: 'Treatment',
       title: 'Treatment of pneumonia',
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget...',
-      iconPath: 'images/icons_box/icon_4/icon-1.png',
-      iconAlt: 'Pneumonia treatment Icon',
+
       readMoreUrl: '#'
     },
     {
@@ -79,8 +64,7 @@ export class ServicesComponent {
       category: 'Treatment',
       title: 'Treatment of dermatitis', 
       description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget...',
-      iconPath: 'images/icons_box/icon_4/icon.png',
-      iconAlt: 'Dermatitis treatment Icon',
+   
       readMoreUrl: '#'
     }
   ];

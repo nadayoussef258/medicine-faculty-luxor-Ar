@@ -41,7 +41,7 @@
                     <ul>
                       <li *ngFor="let link of quickLinks; trackBy: trackByFn">
                         <a [routerLink]="link.url" (click)="onLinkClick('quicklink', link)">
-                          <span>{{ link.icon }}</span> {{ link.text }}
+                          <span>+</span> {{ link.text }}
                         </a>
                       </li>
                     </ul>

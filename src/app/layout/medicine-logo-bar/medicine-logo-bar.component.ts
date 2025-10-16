@@ -1,24 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { ContactDto, LogoDto } from '../../Models/layout';
 
-export interface LogoDto {
-      id?:string;
-  logoPath: string;
-  logoAltText: string;
-  title?: string;
-  subtitle?: string;
-}
-
-export interface ContactDto{
-      id?:string;
-
-  address?: string;
-  phone?: string;
-  email?: string;
-  website?: string;
-  facebook?: string;
-}
 
 @Component({
   selector: 'ck-medicine-logo-bar',

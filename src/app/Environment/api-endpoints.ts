@@ -1,5 +1,5 @@
 export const API_ENDPOINTS = {
-		baseUrl: 'http://luxoruniversityapi.runasp.net/api', 
+		baseUrl: 'http://luxoruniversityapi.runasp.net/api/', 
 	contact: '/Contacts/',
 	Statistics: '/Statistics/',
 	Menus: '/Menus/',

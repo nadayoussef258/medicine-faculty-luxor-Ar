@@ -1,6 +1,7 @@
 // medical-conference-hero.component.ts
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, Input,  ViewEncapsulation } from '@angular/core';
+import { DeanInfoDto } from '../../../Models/home';
 
 
 @Component({
@@ -302,7 +303,7 @@ export class MedicalDeanSpeechComponent {
     @Input() sectionTitle: string = `Dean's Message`;
 @Input() fullText: string = '';
   @Input() showFull: boolean = true;
-  deanInfo = {
+  deanInfo:DeanInfoDto = {
     name: 'Prof. Dr.Mohamed Shahat Badawy',
     title: 'Dean of the College',
     image: 'assets/dean.png',
